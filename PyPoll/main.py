@@ -78,3 +78,25 @@ with open(election_csv, 'r') as csvfile:
 
 
 
+    file = open("./Analysis/analysis.txt", "w+")
+    file.write("Election Results")
+    file.write("\n")
+    file.write("-------------------------")
+    file.write("\n")
+    file.write(f"Total votes: {TotalVotes}")
+    file.write("\n")
+    file.write("-------------------------")
+    file.write("\n")
+    file.write(f"Khan: {math.ceil(khanpercent)}%  and {khan} votes")
+    file.write("\n")
+    file.write(f"Correy: {math.ceil(correypercent)}%  and {correy} votes")
+    file.write("\n")
+    file.write(f"Li: {math.ceil(lipercent)}%  and {li} votes")
+    file.write("\n")
+    file.write(f"O'Tooley: {math.ceil(tooleypercent)}%  and {tooley} votes")
+    file.write("\n")
+    file.write("-------------------------")
+    file.write("\n")
+    file.write(f"Winner: {winner}")
+    file.close()
+

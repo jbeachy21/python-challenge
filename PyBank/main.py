@@ -42,11 +42,36 @@ with open(budget_csv, 'r') as csvfile:
 
     # AverageChange/= (GreatestDecrease + GreatestIncrease)
     AverageChange = AverageChange/i
+    print("Financial Analysis:")
+    print("-------------------------")
     print(f"Total months: {i}")
     print(f"Net Profit: {int(netprofit)}")
     print(f"Average Change: {int(AverageChange)}")
 
     print(f"Greatest increase: {GreatestIncrease}")
     print(f"Greatest decrease: {GreatestDecrease}")
+
+
+
+
+
+    file = open("./Analysis/analysis.txt", "w+")
+
+    file.write("Financial Analysis:")
+    file.write("\n")
+    file.write("-------------------------")
+    file.write("\n")
+    file.write(f"Total months: {i}")
+    file.write("\n")
+    file.write(f"Net Profit: {int(netprofit)}")
+    file.write("\n")
+    file.write(f"Average Change: {int(AverageChange)}")
+    file.write("\n")
+    file.write(f"Greatest increase: {GreatestIncrease}")
+    file.write("\n")
+    file.write(f"Greatest decrease: {GreatestDecrease}")
+
+
+    file.close()
        
 
