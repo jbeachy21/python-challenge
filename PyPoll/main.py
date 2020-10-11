@@ -1,6 +1,6 @@
 import os
 import csv
-
+import math
 
 election_csv = os.path.join('Resources', 'election_data.csv')
 
@@ -13,8 +13,12 @@ with open(election_csv, 'r') as csvfile:
     header = next(csvreader)
 
     TotalVotes = 0
-    winner = ""
+    
+
+
+    # Dictionary to keep track of candidates and total votes (candidate, total votes)
     collection = {}
+    # counter variables to make tracking votes easier
     khan = 0
     correy = 0
     li = 0
@@ -44,20 +48,33 @@ with open(election_csv, 'r') as csvfile:
     lipercent = (li/TotalVotes) * 100
     tooleypercent = (tooley/TotalVotes) * 100
     
+
+
+    # makes a list of the keys (total votes of each candidate)
+    values = collection.values()
+    keys = collection.keys()
+    # getting max from collection of voting data
+    x = max(values)
+    
+    winner = ""
+    for i in keys:
+        # print(i)
+        if collection.get(i) == x:
+            winner = i
         
-    print(collection.items())
+    # print(collection.items())
     
 
     print("Election Results")
     print("-------------------------")
     print(f"Total votes: {TotalVotes}")
     print("-------------------------")
-    print(f"Khan: {khanpercent}%  and {khan} votes")
-    print(f"Correy: {correypercent}%  and {correy} votes")
-    print(f"Li: {lipercent}%  and {li} votes")
-    print(f"O'Tooley: {tooleypercent}%  and {tooley} votes")
+    print(f"Khan: {math.ceil(khanpercent)}%  and {khan} votes")
+    print(f"Correy: {math.ceil(correypercent)}%  and {correy} votes")
+    print(f"Li: {math.ceil(lipercent)}%  and {li} votes")
+    print(f"O'Tooley: {math.ceil(tooleypercent)}%  and {tooley} votes")
     print("-------------------------")
-    print("Winner: ")
+    print(f"Winner: {winner}")
 
 
 
