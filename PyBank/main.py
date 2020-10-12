@@ -21,27 +21,25 @@ with open(budget_csv, 'r') as csvfile:
     current = 0
     previous = 0
     AverageChange = 0
+    netChangeList = []
     for row in csvreader:
         previous = current
         current = row[1]
         Delta = int(current) - int(previous)
         netprofit= netprofit + int(row[1])
-        print(row[1])
-        
+
+        netChangeList.append(Delta)
+     
         i+=1
         
         if Delta > GreatestIncrease:
             GreatestIncrease = Delta
-            AverageChange+= GreatestIncrease
+            
         if Delta < 0 and Delta < GreatestDecrease:
             GreatestDecrease = Delta
-            AverageChange+= GreatestDecrease
             
-        
     
-
-    # AverageChange/= (GreatestDecrease + GreatestIncrease)
-    AverageChange = AverageChange/i
+    AverageChange = sum(netChangeList)/len(netChangeList)
     print("Financial Analysis:")
     print("-------------------------")
     print(f"Total months: {i}")

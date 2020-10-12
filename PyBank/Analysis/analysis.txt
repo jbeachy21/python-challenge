@@ -2,6 +2,6 @@ Financial Analysis:
 -------------------------
 Total months: 86
 Net Profit: 38382578
-Average Change: -40365
+Average Change: 7803
 Greatest increase: 1926159
 Greatest decrease: -2196167
